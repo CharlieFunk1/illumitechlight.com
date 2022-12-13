@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hi, {{ current_user.username }}!</h1>
+<h2>Delete Admin<h2>
+{% for u in user %}
+      <p>Admin: {{ u.username }} Email: {{ u.email }}</p>
+      <a href="/private_delete_admin_go/{{ u.id }}">Delete</a>
+      {% endfor %}
+<br>
+<a href="/private">Back</a>
+{% endblock %}    

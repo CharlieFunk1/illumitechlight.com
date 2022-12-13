@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Hi, {{ current_user.username }}!</h1>
+  <p>Add a new <a href="{{ url_for('register') }}">Admin</a></p>
+  <p><a href="{{ url_for('private_delete_admin') }}">Delete</a> an Admin</p>
+  <h2>Messages Recieved</h2>
+    {% for c in contact %}
+      <p>Message from: {{ c.name }} Email: {{ c.email }} On: {{ c.datetime }}</p>
+      <p>M: {{ c.message }}</p>
+      <a href="/private_contact_delete/{{ c.id }}">Delete</a>
+    {% endfor %}
+ {% endblock %}    
